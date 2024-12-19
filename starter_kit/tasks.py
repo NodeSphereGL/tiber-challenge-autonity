@@ -69,7 +69,7 @@ def swap_exact_tokens_for_tokens(w3: Web3) -> None:
     """Swaps 0.01 NTN for USDCx."""
 
     ntn = ERC20(w3, params.NTN_ADDRESS)
-    ntn_amount = int(0.01 * 10 ** ntn.decimals())
+    ntn_amount = int(50 * 10 ** ntn.decimals())
     approve_tx = ntn.approve(params.UNISWAP_ROUTER_ADDRESS, ntn_amount).transact()
     w3.eth.wait_for_transaction_receipt(approve_tx)
 
