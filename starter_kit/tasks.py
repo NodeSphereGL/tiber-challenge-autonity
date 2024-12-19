@@ -89,11 +89,11 @@ def swap_exact_tokens_for_tokens(w3: Web3) -> None:
 tasks.append(swap_exact_tokens_for_tokens)
 
 def swap_exact_tokens_for_tokens_usdcx_to_ntn(w3: Web3) -> None:
-    """Swaps USDCx for 0.1 NTN."""
+    """Swaps USDCx for 0.01 NTN."""
 
     # Initialize the USDCx ERC20 token contract
     usdcx = ERC20(w3, params.USDCX_ADDRESS)
-    usdcx_amount = int(0.1 * 10 ** usdcx.decimals())  # Define the amount of USDCx to swap (0.1 USDCx)
+    usdcx_amount = int(0.01 * 10 ** usdcx.decimals())  # Define the amount of USDCx to swap (0.1 USDCx)
     
     # Approve the Uniswap Router to spend USDCx tokens
     approve_tx = usdcx.approve(params.UNISWAP_ROUTER_ADDRESS, usdcx_amount).transact()

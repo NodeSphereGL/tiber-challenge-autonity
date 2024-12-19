@@ -27,7 +27,7 @@ w3.middleware_onion.add(signer_middleware)
 
 """
 try:
-    tasks.swap_exact_tokens_for_tokens_usdcx_to_atn(w3)
+    tasks.swap_exact_tokens_for_tokens(w3)
 except ContractLogicError as e:
     # Contract execution reverted
     logger.warning(e)
