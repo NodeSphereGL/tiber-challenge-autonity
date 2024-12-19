@@ -25,6 +25,7 @@ signer_middleware = cast(
 )
 w3.middleware_onion.add(signer_middleware)
 
+"""
 try:
     tasks.swap_exact_tokens_for_tokens(w3)
 except ContractLogicError as e:
@@ -32,6 +33,7 @@ except ContractLogicError as e:
     logger.warning(e)
 
 exit()
+"""
 
 task_list = tasks.tasks
 
