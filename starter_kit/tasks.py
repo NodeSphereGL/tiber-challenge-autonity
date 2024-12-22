@@ -16,10 +16,10 @@ tasks: List[Task] = []
 
 
 def transfer(w3: Web3) -> None:
-    """Transfers 0.01 NTN to a recipient specified in .env."""
+    """Transfers 0.001 NTN to a recipient specified in .env."""
 
     autonity = Autonity(w3)
-    amount = int(0.01 * 10 ** autonity.decimals())
+    amount = int(0.001 * 10 ** autonity.decimals())
     tx = autonity.transfer(params.RECIPIENT_ADDRESS, amount).transact()
     w3.eth.wait_for_transaction_receipt(tx)
 
@@ -57,7 +57,7 @@ def approve(w3: Web3) -> None:
     """Approves the transfer of 0.01 NTN by a recipient specified in .env."""
 
     autonity = Autonity(w3)
-    amount = int(0.01 * 10 ** autonity.decimals())
+    amount = int(0.001 * 10 ** autonity.decimals())
     tx = autonity.approve(params.RECIPIENT_ADDRESS, amount).transact()
     w3.eth.wait_for_transaction_receipt(tx)
 
@@ -69,7 +69,7 @@ def swap_exact_tokens_for_tokens(w3: Web3) -> None:
     """Swaps 0.01 NTN for USDCx."""
 
     ntn = ERC20(w3, params.NTN_ADDRESS)
-    ntn_amount = int(0.01 * 10 ** ntn.decimals())
+    ntn_amount = int(0.001 * 10 ** ntn.decimals())
     approve_tx = ntn.approve(params.UNISWAP_ROUTER_ADDRESS, ntn_amount).transact()
     w3.eth.wait_for_transaction_receipt(approve_tx)
 
@@ -93,7 +93,7 @@ def swap_exact_tokens_for_tokens_usdcx_to_ntn(w3: Web3) -> None:
 
     # Initialize the USDCx ERC20 token contract
     usdcx = ERC20(w3, params.USDCX_ADDRESS)
-    usdcx_amount = int(0.01 * 10 ** usdcx.decimals())  # Define the amount of USDCx to swap (0.1 USDCx)
+    usdcx_amount = int(0.001 * 10 ** usdcx.decimals())  # Define the amount of USDCx to swap (0.1 USDCx)
     
     # Approve the Uniswap Router to spend USDCx tokens
     approve_tx = usdcx.approve(params.UNISWAP_ROUTER_ADDRESS, usdcx_amount).transact()
@@ -126,7 +126,7 @@ def swap_exact_tokens_for_tokens_usdcx_to_atn(w3: Web3) -> None:
 
     # Initialize the USDCx ERC20 token contract
     usdcx = ERC20(w3, params.USDCX_ADDRESS)
-    usdcx_amount = int(0.01 * 10 ** usdcx.decimals())  # Define the amount of USDCx to swap (0.01 USDCx)
+    usdcx_amount = int(0.001 * 10 ** usdcx.decimals())  # Define the amount of USDCx to swap (0.01 USDCx)
     
     # Approve the Uniswap Router to spend USDCx tokens
     approve_tx = usdcx.approve(params.UNISWAP_ROUTER_ADDRESS, usdcx_amount).transact()
@@ -158,7 +158,7 @@ def swap_exact_atn_for_ntn(w3: Web3) -> None:
     """Swaps 0.01 ATN for NTN."""
 
     watn = ERC20(w3, params.WATN_ADDRESS)
-    atn_amount = int(0.01 * 10 ** watn.decimals())
+    atn_amount = int(0.001 * 10 ** watn.decimals())
     approve_tx = watn.approve(params.UNISWAP_ROUTER_ADDRESS, atn_amount).transact()
     w3.eth.wait_for_transaction_receipt(approve_tx)
 
@@ -180,7 +180,7 @@ def add_liquidity(w3: Web3) -> None:
     """Adds 0.1 NTN and 0.01 USDCx to the Uniswap liquidity pool."""
 
     ntn = ERC20(w3, params.NTN_ADDRESS)
-    ntn_amount = int(0.1 * 10 ** ntn.decimals())
+    ntn_amount = int(0.01 * 10 ** ntn.decimals())
     approve_tx_2 = ntn.approve(params.UNISWAP_ROUTER_ADDRESS, ntn_amount).transact()
     w3.eth.wait_for_transaction_receipt(approve_tx_2)
 
